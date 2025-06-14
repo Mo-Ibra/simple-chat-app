@@ -9,6 +9,9 @@ let users = {};
 
 io.on('connection', socket => {
 
+  // We will get this username from session.
+  // const username = sessionStorage.getItem("username") || "مجهول";
+  // socket.emit("join", username);
   socket.on('join', username => {
     users[socket.id] = username;
     socket.broadcast.emit('message', {
